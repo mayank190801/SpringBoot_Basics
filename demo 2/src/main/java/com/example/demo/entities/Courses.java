@@ -1,15 +1,19 @@
 package com.example.demo.entities;
 
-public class Coures {
+public class Courses {
 
     private long id;
     private String title;
     private String description;
 
-    public Coures(long id, String title, String description) {
+    public Courses(long id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
+    }
+
+    public Courses(){
+        super();
     }
 
     public long getId() {
@@ -38,7 +42,7 @@ public class Coures {
 
     @Override
     public String toString() {
-        return "Coures{" +
+        return "Courses{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

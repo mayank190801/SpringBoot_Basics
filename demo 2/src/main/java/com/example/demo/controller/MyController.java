@@ -1,8 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.entities.Coures;
-import org.springframework.stereotype.Controller;
+import com.example.demo.entities.Courses;
+import com.example.demo.services.CourseService;
+import com.example.demo.services.CourseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -12,17 +15,23 @@ import java.util.List;
 @RestController
 public class MyController {
 
-//    @GetMapping("/home")
-//    public String home(){
-//        return "Welcome to courses application";
-//    }
+    //please springboot get the object for this implementation class - autowired
+    @Autowired
+    private CourseService courseService;
+
 
     //get the courses
     @GetMapping("/courses")
-    public List<Coures> getCourses(){
-        //contact dusre service layer
-        return null;
+    public List<Courses> getCourses(){
+        return this.courseService.getCourses();  //calling a specific service for our use
     }
+
+    //get course by id
+    @GetMapping("/courses/{courseId}")
+    public Courses getCourses(@PathVariable String courseId){
+        return this.courseService.getCourse(Long.parseLong(courseId));  //calling a specific service for our use
+    }
+
 
 
 
