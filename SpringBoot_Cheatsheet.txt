@@ -1,4 +1,4 @@
-
+SPRINGBOOT CHEATSHEET
 -> setup pom.xml file 
 
 -> Create controller
@@ -41,4 +41,13 @@ info.app.name=Mayank Singh
 info.app.description=How are you?
 
 
+-> We have actuator security - you can secure the endpoints using this
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+/health and /info are always exposed, you can hide them if you want in application.properties
+for other you have to put username=user and password=would be present in the console window
 
+
+-> Run from the command line
